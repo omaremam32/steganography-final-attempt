@@ -53,3 +53,31 @@ def validate_bmp_24bit_uncompressed(image_data: bytearray) -> tuple:
 def capacity_bits(image_data: bytearray, pixel_offset: int) -> int:
     
     return len(image_data) - pixel_offset
+def hide_message_bmp(input_bmp: str, message: str, output_bmp: str) -> str:
+    
+    if not file_exists(input_bmp):
+        return "Error: Input image file does not exist."
+
+    image_data = read_all_bytes(input_bmp)
+    ok, msg, pixel_offset, _, _ = validate_bmp_24bit_uncompressed(image_data)
+    if not ok:
+        return f"Error: {msg}"
+
+    
+    full_message = message + STOP_MARKER
+    secret_bits = text_to_bits(full_message)
+
+    if len(secret_bits) > capacity_bits(image_data, pixel_offset):
+        return "Error: Message too long for the image."
+
+    bit_index = 0
+
+    
+    for i in range(pixel_offset, len(image_data)):
+        if bit_index >= len(secret_bits):
+            break
+        image_data[i] = (image_data[i] & 0b11111110) | secret_bits[bit_index]
+        bit_index += 1
+
+    write_all_bytes(output_bmp, image_data)
+    return "Success: Message hidden successfully."
