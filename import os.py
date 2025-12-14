@@ -33,3 +33,20 @@ def get_bmp_pixel_data_offset(image_data: bytearray) -> int:
         return BMP_HEADER_SIZE
     offset = int.from_bytes(image_data[10:14], "little")
     return offset if offset > 0 else BMP_HEADER_SIZE
+def validate_bmp_24bit_uncompressed(image_data: bytearray) -> tuple:
+   
+    if image_data[0:2] != b"BM":
+        return (False, "Not a BMP file.", BMP_HEADER_SIZE, None, None)
+
+    pixel_offset = get_bmp_pixel_data_offset(image_data)
+
+    bpp = int.from_bytes(image_data[28:30], "little")         # Bits per pixel
+    compression = int.from_bytes(image_data[30:34], "little") # Compression type
+
+    if bpp != 24:
+        return (False, "Image is not 24-bit BMP.", pixel_offset, bpp, compression)
+
+    if compression != 0:
+        return (False, "BMP file is compressed.", pixel_offset, bpp, compression)
+
+    return (True, "OK", pixel_offset, bpp, compression)
