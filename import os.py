@@ -17,3 +17,13 @@ def read_all_bytes(path: str) -> bytearray:
         for bit in binary:
             bits.append(1 if bit == "1" else 0)
     return bits
+def bits_to_text(bits: list) -> str:
+    
+    chars = []
+    for i in range(0, len(bits), 8):
+        byte_bits = bits[i:i+8]
+        if len(byte_bits) < 8:
+            break
+        byte_str = "".join("1" if b else "0" for b in byte_bits)
+        chars.append(chr(int(byte_str, 2)))
+    return "".join(chars)
