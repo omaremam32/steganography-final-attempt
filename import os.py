@@ -101,3 +101,28 @@ def reveal_message_bmp(stego_bmp: str) -> str:
             return bits_to_text(extracted_bits[:-len(stop_bits)])
 
     return "Error: No hidden message found."
+def menu():
+    
+    print("=== Image Steganography (LSB) ===")
+
+    while True:
+        print("1) Encode message")
+        print("2) Decode message")
+        print("3) Exit")
+        choice = input("Enter choice: ")
+
+        if choice == "1":
+            img = input("Enter input BMP path: ")
+            msg = input("Enter secret message: ")
+            out = input("Enter output BMP name: ") or "stego.bmp"
+            print(hide_message_bmp(img, msg, out))
+
+        elif choice == "2":
+            img = input("Enter stego BMP path: ")
+            print(reveal_message_bmp(img))
+
+        elif choice == "3":
+            break
+
+        else:
+            print("Invalid choice.")
