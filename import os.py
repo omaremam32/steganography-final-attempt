@@ -81,3 +81,23 @@ def hide_message_bmp(input_bmp: str, message: str, output_bmp: str) -> str:
 
     write_all_bytes(output_bmp, image_data)
     return "Success: Message hidden successfully."
+def reveal_message_bmp(stego_bmp: str) -> str:
+    
+    if not file_exists(stego_bmp):
+        return "Error: Stego image does not exist."
+
+    image_data = read_all_bytes(stego_bmp)
+    ok, msg, pixel_offset, _, _ = validate_bmp_24bit_uncompressed(image_data)
+    if not ok:
+        return f"Error: {msg}"
+
+    extracted_bits = []
+    stop_bits = text_to_bits(STOP_MARKER)
+
+    
+    for i in range(pixel_offset, len(image_data)):
+        extracted_bits.append(image_data[i] & 1)
+        if extracted_bits[-len(stop_bits):] == stop_bits:
+            return bits_to_text(extracted_bits[:-len(stop_bits)])
+
+    return "Error: No hidden message found."
