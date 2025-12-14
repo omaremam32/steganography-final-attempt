@@ -50,3 +50,6 @@ def validate_bmp_24bit_uncompressed(image_data: bytearray) -> tuple:
         return (False, "BMP file is compressed.", pixel_offset, bpp, compression)
 
     return (True, "OK", pixel_offset, bpp, compression)
+def capacity_bits(image_data: bytearray, pixel_offset: int) -> int:
+    
+    return len(image_data) - pixel_offset
