@@ -10,3 +10,10 @@ def read_all_bytes(path: str) -> bytearray:
     def write_all_bytes(path: str, data: bytearray) -> None:
     with open(path, "wb") as f:
         f.write(data)
+        def text_to_bits(text: str) -> list:
+    bits = []
+    for ch in text:
+        binary = format(ord(ch), "08b")  # Convert character to 8-bit binary
+        for bit in binary:
+            bits.append(1 if bit == "1" else 0)
+    return bits
