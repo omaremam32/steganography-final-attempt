@@ -27,3 +27,9 @@ def bits_to_text(bits: list) -> str:
         byte_str = "".join("1" if b else "0" for b in byte_bits)
         chars.append(chr(int(byte_str, 2)))
     return "".join(chars)
+def get_bmp_pixel_data_offset(image_data: bytearray) -> int:
+    
+    if len(image_data) < 14:
+        return BMP_HEADER_SIZE
+    offset = int.from_bytes(image_data[10:14], "little")
+    return offset if offset > 0 else BMP_HEADER_SIZE
