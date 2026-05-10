@@ -51,3 +51,4 @@ def file_exists(path: str) -> bool:
                             def capacity_bits(image_data: bytearray, pixel_offset: int) -> int:
                                 return max(0, len(image_data) - pixel_offset)
                             def hide_message_bmp(input_bmp: str, message: str, output_bmp: str) -> str:
+                                if not file_exists(input_bmp):
