@@ -5,3 +5,4 @@ STOP_MARKER = "@@@"
 def file_exists(path: str) -> bool:
     def read_all_bytes(path: str) -> bytearray:
         with open(path, "rb") as f:
+            return bytearray(f.read())
