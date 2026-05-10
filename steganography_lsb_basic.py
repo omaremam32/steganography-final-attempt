@@ -52,3 +52,4 @@ def file_exists(path: str) -> bool:
                                 return max(0, len(image_data) - pixel_offset)
                             def hide_message_bmp(input_bmp: str, message: str, output_bmp: str) -> str:
                                 if not file_exists(input_bmp):
+                                    return f"Error: Input file does not exist: {input_bmp}"
