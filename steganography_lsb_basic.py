@@ -15,3 +15,4 @@ def file_exists(path: str) -> bool:
                         b = format(ord(ch), "08b")
                         for bit in b:
                             bits.append(1 if bit == "1" else 0)
+                            return bits
