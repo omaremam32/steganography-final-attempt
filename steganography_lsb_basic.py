@@ -4,3 +4,4 @@ BMP_HEADER_SIZE = 54
 STOP_MARKER = "@@@"
 def file_exists(path: str) -> bool:
     def read_all_bytes(path: str) -> bytearray:
+        with open(path, "rb") as f:
