@@ -49,3 +49,4 @@ def file_exists(path: str) -> bool:
                                     return (False, "Corrupt BMP (pixel data offset out of range).", pixel_offset, bpp, compression)
                                 return (True, "OK", pixel_offset, bpp, compression)
                             def capacity_bits(image_data: bytearray, pixel_offset: int) -> int:
+                                return max(0, len(image_data) - pixel_offset)
