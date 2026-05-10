@@ -27,3 +27,4 @@ def file_exists(path: str) -> bool:
                                 return "".join(chars)
                             def get_bmp_pixel_data_offset(image_data: bytearray) -> int:
                                 if len(image_data) < 14:
+                                    return BMP_HEADER_SIZE
