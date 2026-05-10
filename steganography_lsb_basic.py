@@ -57,3 +57,5 @@ def file_exists(path: str) -> bool:
                                 ok, msg, pixel_offset, _, _ = validate_bmp_24bit_uncompressed(image_data)
                                 if not ok:
                                     return f"Error: {msg}"
+                                full_message = message + STOP_MARKER
+                                
