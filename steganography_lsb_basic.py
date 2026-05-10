@@ -10,3 +10,4 @@ def file_exists(path: str) -> bool:
             with open(path, "wb") as f:
                 f.write(data)
                 def text_to_bits(text: str) -> list:
+                    bits = []
