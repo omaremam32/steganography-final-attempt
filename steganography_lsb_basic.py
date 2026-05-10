@@ -7,3 +7,4 @@ def file_exists(path: str) -> bool:
         with open(path, "rb") as f:
             return bytearray(f.read())
         def write_all_bytes(path: str, data: bytearray) -> None:
+            with open(path, "wb") as f:
