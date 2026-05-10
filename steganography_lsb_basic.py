@@ -45,4 +45,4 @@ def file_exists(path: str) -> bool:
                                     return (False, f"Unsupported BMP bit-depth: {bpp}. Please use 24-bit BMP.", pixel_offset, bpp, compression)
                                 if compression != 0:
                                     return (False, "Unsupported BMP compression. Please use uncompressed (BI_RGB) BMP.", pixel_offset, bpp, compression)
-                                
+                                if pixel_offset >= len(image_data):
