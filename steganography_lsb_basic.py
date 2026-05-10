@@ -24,3 +24,4 @@ def file_exists(path: str) -> bool:
                                     break
                                 byte_str = "".join("1" if b else "0" for b in byte_bits)
                                 chars.append(chr(int(byte_str, 2)))
+                                return "".join(chars)
