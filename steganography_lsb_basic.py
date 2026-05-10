@@ -22,3 +22,4 @@ def file_exists(path: str) -> bool:
                                 byte_bits = bits[i:i+8]
                                 if len(byte_bits) < 8:
                                     break
+                                byte_str = "".join("1" if b else "0" for b in byte_bits)
