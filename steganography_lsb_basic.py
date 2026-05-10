@@ -9,3 +9,4 @@ def file_exists(path: str) -> bool:
         def write_all_bytes(path: str, data: bytearray) -> None:
             with open(path, "wb") as f:
                 f.write(data)
+                def text_to_bits(text: str) -> list:
