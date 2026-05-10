@@ -40,3 +40,4 @@ def file_exists(path: str) -> bool:
                                 if dib_size < 40:
                                     return (False, "Unsupported BMP format (DIB header too small).", pixel_offset, None, None)
                                 bpp = int.from_bytes(image_data[28:30], "little")
+                                compression = int.from_bytes(image_data[30:34], "little")
