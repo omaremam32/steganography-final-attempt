@@ -26,3 +26,4 @@ def file_exists(path: str) -> bool:
                                 chars.append(chr(int(byte_str, 2)))
                                 return "".join(chars)
                             def get_bmp_pixel_data_offset(image_data: bytearray) -> int:
+                                if len(image_data) < 14:
