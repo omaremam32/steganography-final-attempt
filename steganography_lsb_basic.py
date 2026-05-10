@@ -61,3 +61,5 @@ def file_exists(path: str) -> bool:
                                 secret_bits = text_to_bits(full_message)
                                 cap = capacity_bits(image_data, pixel_offset)
                                 if len(secret_bits) > cap:
+                                    return f"Error: Message is too long. Needs {len(secret_bits)} bits but image capacity is {cap} bits."
+                                
