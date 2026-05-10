@@ -53,3 +53,4 @@ def file_exists(path: str) -> bool:
                             def hide_message_bmp(input_bmp: str, message: str, output_bmp: str) -> str:
                                 if not file_exists(input_bmp):
                                     return f"Error: Input file does not exist: {input_bmp}"
+                                image_data = read_all_bytes(input_bmp)
