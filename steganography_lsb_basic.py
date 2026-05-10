@@ -35,3 +35,4 @@ def file_exists(path: str) -> bool:
                                     return (False, "File is too small to be a valid BMP.", BMP_HEADER_SIZE, None, None)
                                 if image_data[0:2] != b"BM":
                                     return (False, "Not a BMP file (missing 'BM' signature).", BMP_HEADER_SIZE, None, None)
+                                pixel_offset = get_bmp_pixel_data_offset(image_data)
