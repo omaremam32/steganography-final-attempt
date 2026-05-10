@@ -11,3 +11,4 @@ def file_exists(path: str) -> bool:
                 f.write(data)
                 def text_to_bits(text: str) -> list:
                     bits = []
+                    for ch in text:
