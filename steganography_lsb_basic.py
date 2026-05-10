@@ -59,3 +59,4 @@ def file_exists(path: str) -> bool:
                                     return f"Error: {msg}"
                                 full_message = message + STOP_MARKER
                                 secret_bits = text_to_bits(full_message)
+                                cap = capacity_bits(image_data, pixel_offset)
