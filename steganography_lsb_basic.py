@@ -43,3 +43,5 @@ def file_exists(path: str) -> bool:
                                 compression = int.from_bytes(image_data[30:34], "little")
                                 if bpp != 24:
                                     return (False, f"Unsupported BMP bit-depth: {bpp}. Please use 24-bit BMP.", pixel_offset, bpp, compression)
+                                if compression != 0:
+                                    
