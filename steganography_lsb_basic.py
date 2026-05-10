@@ -58,4 +58,4 @@ def file_exists(path: str) -> bool:
                                 if not ok:
                                     return f"Error: {msg}"
                                 full_message = message + STOP_MARKER
-                                
+                                secret_bits = text_to_bits(full_message)
