@@ -38,3 +38,4 @@ def file_exists(path: str) -> bool:
                                 pixel_offset = get_bmp_pixel_data_offset(image_data)
                                 dib_size = int.from_bytes(image_data[14:18], "little")
                                 if dib_size < 40:
+                                    return (False, "Unsupported BMP format (DIB header too small).", pixel_offset, None, None)
