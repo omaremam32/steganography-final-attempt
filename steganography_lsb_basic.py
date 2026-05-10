@@ -29,3 +29,4 @@ def file_exists(path: str) -> bool:
                                 if len(image_data) < 14:
                                     return BMP_HEADER_SIZE
                                 offset = int.from_bytes(image_data[10:14], byteorder="little", signed=False)
+                                return offset if offset > 0 else BMP_HEADER_SIZE
