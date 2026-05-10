@@ -47,4 +47,4 @@ def file_exists(path: str) -> bool:
                                     return (False, "Unsupported BMP compression. Please use uncompressed (BI_RGB) BMP.", pixel_offset, bpp, compression)
                                 if pixel_offset >= len(image_data):
                                     return (False, "Corrupt BMP (pixel data offset out of range).", pixel_offset, bpp, compression)
-                                
+                                return (True, "OK", pixel_offset, bpp, compression)
