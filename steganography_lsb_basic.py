@@ -30,3 +30,4 @@ def file_exists(path: str) -> bool:
                                     return BMP_HEADER_SIZE
                                 offset = int.from_bytes(image_data[10:14], byteorder="little", signed=False)
                                 return offset if offset > 0 else BMP_HEADER_SIZE
+                            def validate_bmp_24bit_uncompressed(image_data: bytearray) -> tuple:
