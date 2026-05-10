@@ -33,3 +33,4 @@ def file_exists(path: str) -> bool:
                             def validate_bmp_24bit_uncompressed(image_data: bytearray) -> tuple:
                                 if len(image_data) < BMP_HEADER_SIZE:
                                     return (False, "File is too small to be a valid BMP.", BMP_HEADER_SIZE, None, None)
+                                if image_data[0:2] != b"BM":
