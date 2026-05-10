@@ -41,3 +41,4 @@ def file_exists(path: str) -> bool:
                                     return (False, "Unsupported BMP format (DIB header too small).", pixel_offset, None, None)
                                 bpp = int.from_bytes(image_data[28:30], "little")
                                 compression = int.from_bytes(image_data[30:34], "little")
+                                if bpp != 24:
