@@ -13,3 +13,4 @@ def file_exists(path: str) -> bool:
                     bits = []
                     for ch in text:
                         b = format(ord(ch), "08b")
+                        for bit in b:
