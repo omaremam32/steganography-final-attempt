@@ -18,3 +18,4 @@ def file_exists(path: str) -> bool:
                             return bits
                         def bits_to_text(bits: list) -> str:
                             chars = []
+                            for i in range(0, len(bits), 8):
