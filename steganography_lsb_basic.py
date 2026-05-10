@@ -54,3 +54,4 @@ def file_exists(path: str) -> bool:
                                 if not file_exists(input_bmp):
                                     return f"Error: Input file does not exist: {input_bmp}"
                                 image_data = read_all_bytes(input_bmp)
+                                ok, msg, pixel_offset, _, _ = validate_bmp_24bit_uncompressed(image_data)
