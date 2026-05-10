@@ -37,3 +37,4 @@ def file_exists(path: str) -> bool:
                                     return (False, "Not a BMP file (missing 'BM' signature).", BMP_HEADER_SIZE, None, None)
                                 pixel_offset = get_bmp_pixel_data_offset(image_data)
                                 dib_size = int.from_bytes(image_data[14:18], "little")
+                                if dib_size < 40:
