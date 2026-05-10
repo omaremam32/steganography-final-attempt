@@ -17,3 +17,4 @@ def file_exists(path: str) -> bool:
                             bits.append(1 if bit == "1" else 0)
                             return bits
                         def bits_to_text(bits: list) -> str:
+                            chars = []
